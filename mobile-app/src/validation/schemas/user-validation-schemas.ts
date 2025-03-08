@@ -1,29 +1,21 @@
 import { z } from "zod";
 
-export const firstNameMaxLength = 80 as const;
+export const firstAndLastNameMaxLength = 120 as const;
 export const lastNameMaxLength = 80 as const;
-export const passwordMinLength = 12 as const;
+export const passwordMinLength = 4 as const;
 export const passwordMaxLength = 50 as const;
 
-export const firstNameValidationSchema = z
-  .string({ required_error: "Le prénom est requis" })
-  .min(1, { message: "Le prénom ne peut pas être vide" })
-  .max(firstNameMaxLength, {
-    message: `Le prénom ne peut pas dépasser ${firstNameMaxLength} caractères`,
+export const firstNameAndLastNameValidationSchema = z
+  .string({ required_error: "Les noms & prénoms et sont requis" })
+  .min(1, { message: "Remplissez ce champ" })
+  .max(firstAndLastNameMaxLength, {
+    message: `Au maximum ${firstAndLastNameMaxLength} caractères`,
   })
   .trim();
 
 export const emailValidationSchema = z
   .string({ required_error: "L'adresse e-mail est requise" })
   .email({ message: "L'adresse e-mail n'est pas valide" });
-
-export const lastNameValidationSchema = z
-  .string({ required_error: "Le nom de famille est requis" })
-  .min(1, { message: "Le nom de famille ne peut pas être vide" })
-  .max(lastNameMaxLength, {
-    message: `Le nom de famille ne peut pas dépasser ${lastNameMaxLength} caractères`,
-  })
-  .trim();
 
 export const passwordValidationSchema = z
   .string({ required_error: "Le mot de passe est requis" })
@@ -59,8 +51,3 @@ export const updatePasswordValidationSchema = z
     message: "Le nouveau mot de passe doit être différent de l'ancien",
     path: ["newPassword"],
   });
-
-export const updateFirstNameAndLastNameValidationSchema = z.object({
-  firstName: firstNameValidationSchema,
-  lastName: lastNameValidationSchema,
-});

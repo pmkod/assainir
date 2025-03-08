@@ -68,7 +68,7 @@ export const PasswordResetForm = () => {
         name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Adresse mail</FormLabel>
+            <FormLabel>Email</FormLabel>
 
             <Input {...field} />
             <FormMessage />

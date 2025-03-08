@@ -79,7 +79,7 @@ export const LoginForm = () => {
         name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Adresse mail</FormLabel>
+            <FormLabel>Email</FormLabel>
             <Input {...field} />
           </FormItem>
         )}

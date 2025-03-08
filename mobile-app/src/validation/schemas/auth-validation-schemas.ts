@@ -1,7 +1,6 @@
 import { z } from "zod";
 import {
-  firstNameValidationSchema,
-  lastNameValidationSchema,
+  firstNameAndLastNameValidationSchema,
   passwordValidationSchema,
   emailValidationSchema,
 } from "./user-validation-schemas";
@@ -23,12 +22,26 @@ export const passwordResetValidationSchema = z.object({
   countryId: idValidationSchema,
 });
 
+const companyNameMaxLength = 70;
+const managerNameMaxLength = 70;
+
 export const signupFormValidationSchema = z.object({
-  firstName: firstNameValidationSchema,
-  lastName: lastNameValidationSchema,
+  firstNameAndLastName: firstNameAndLastNameValidationSchema.optional(),
+  companyName: z
+    .string()
+    .min(companyNameMaxLength, "Remplissez ce champs")
+    .max(companyNameMaxLength, `Au maximum ${companyNameMaxLength}`)
+    .optional(),
+  phoneNumber: z.string().length(10, "10 caractères pour le numero"),
+  managerName: z
+    .string()
+    .min(1, "Remplissez ce champs")
+    .max(managerNameMaxLength, `Au maximum ${managerNameMaxLength}`)
+    .optional(),
+  area: z.string().min(1, "Sélectionnez").optional(),
   email: emailValidationSchema,
   password: passwordValidationSchema,
-  countryId: idValidationSchema,
+  confirmPassword: passwordValidationSchema,
 });
 
 export const newPasswordFormValidationSchema = z.object({
