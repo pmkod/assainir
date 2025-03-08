@@ -19,7 +19,7 @@ export const LoginForm = () => {
     resolver: zodResolver(loginFormValidationSchema),
     mode: "onSubmit",
     defaultValues: {
-      phoneNumber: "",
+      email: "",
       password: "",
     },
     reValidateMode: "onSubmit",
@@ -76,10 +76,10 @@ export const LoginForm = () => {
       )}
       <FormField
         control={form.control}
-        name="phoneNumber"
+        name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Numero de téléphone</FormLabel>
+            <FormLabel>Adresse mail</FormLabel>
             <Input {...field} />
           </FormItem>
         )}

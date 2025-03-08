@@ -18,7 +18,7 @@ export const PasswordResetForm = () => {
     reValidateMode: "onSubmit",
 
     defaultValues: {
-      phoneNumber: "",
+      email: "",
     },
   });
 
@@ -65,10 +65,10 @@ export const PasswordResetForm = () => {
       )}
       <FormField
         control={form.control}
-        name="phoneNumber"
+        name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Numéro de téléphone</FormLabel>
+            <FormLabel>Adresse mail</FormLabel>
 
             <Input {...field} />
             <FormMessage />

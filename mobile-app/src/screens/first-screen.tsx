@@ -49,18 +49,10 @@ const FirstScreen = () => {
           source={require("../../assets/images/assainir-logo.png")}
           style={{
             width: 150,
-            height: 150,
+            height: 100,
             marginBottom: 20,
           }}
         />
-        <MyText
-          fontSize={28}
-          color="gray600"
-          textAlign="center"
-          fontWeight="semiBold"
-        >
-          Assainir
-        </MyText>
 
         <Space height={40} />
 

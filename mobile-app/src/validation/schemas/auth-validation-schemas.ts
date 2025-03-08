@@ -3,14 +3,13 @@ import {
   firstNameValidationSchema,
   lastNameValidationSchema,
   passwordValidationSchema,
-  phoneNumberValidationSchema,
+  emailValidationSchema,
 } from "./user-validation-schemas";
 import { idValidationSchema } from "./shared-schemas";
 
 export const loginFormValidationSchema = z.object({
-  phoneNumber: phoneNumberValidationSchema,
+  email: emailValidationSchema,
   password: passwordValidationSchema,
-  countryId: idValidationSchema,
 });
 
 export const otpValidationSchema = z.string().min(1).max(50);
@@ -20,14 +19,14 @@ export const userVerificationFormValidationSchema = z.object({
 });
 
 export const passwordResetValidationSchema = z.object({
-  phoneNumber: phoneNumberValidationSchema,
+  email: emailValidationSchema,
   countryId: idValidationSchema,
 });
 
 export const signupFormValidationSchema = z.object({
   firstName: firstNameValidationSchema,
   lastName: lastNameValidationSchema,
-  phoneNumber: phoneNumberValidationSchema,
+  email: emailValidationSchema,
   password: passwordValidationSchema,
   countryId: idValidationSchema,
 });

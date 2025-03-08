@@ -1,4 +1,3 @@
-import { bottomTabNavigator } from "./bottom-tab-navigator";
 import { firstScreen } from "../screens/first-screen";
 import { loginScreen } from "../screens/auth/login-screen";
 import { signupScreen } from "../screens/auth/signup-screen";
@@ -36,7 +35,7 @@ const StackNavigator = () => {
       {/* <Stack.Screen {...userVerificationScreen} /> */}
       <Stack.Screen {...passwordResetScreen} />
 
-      <Stack.Screen {...bottomTabNavigator} />
+      {/* <Stack.Screen {...bottomTabNavigator} /> */}
     </Stack.Navigator>
   );
 };

@@ -18,7 +18,7 @@ export const SignupForm = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
-      phoneNumber: "",
+      email: "",
       password: "",
     },
   });
@@ -111,10 +111,10 @@ export const SignupForm = () => {
       <Space height={20} />
       <FormField
         control={form.control}
-        name="phoneNumber"
+        name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Numero de téléphone</FormLabel>
+            <FormLabel>Adresse mail</FormLabel>
             <Input {...field} />
             <FormMessage />
           </FormItem>

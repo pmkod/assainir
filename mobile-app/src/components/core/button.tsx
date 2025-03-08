@@ -141,8 +141,8 @@ export const buttonColors = (
 ) => {
   // const borderColorLastPart = isLoading ? "8C" : "";
   const colors = {
-    backgroundColor: theme["gray950"],
-    borderColor: theme["gray950"],
+    backgroundColor: theme["green600"],
+    borderColor: theme["green600"],
   };
 
   if (variantAndColorScheme === "fill-destructive") {
@@ -236,7 +236,7 @@ const buttonBorderRadiusStyle = StyleSheet.create({
 export const buttonTextColor = (variantAndColorScheme: string, theme: any) => {
   let color = theme["gray900"];
   if (variantAndColorScheme === "outline-primary") {
-    color = theme["gray900"];
+    color = theme["green600"];
   } else if (variantAndColorScheme === "outline-destructive") {
     color = theme["destructive"];
   } else if (variantAndColorScheme === "ghost-destructive") {
