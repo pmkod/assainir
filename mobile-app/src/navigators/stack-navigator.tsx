@@ -6,6 +6,8 @@ import { useTheme } from "../style/hooks/use-theme";
 import { screenNames } from "../constants/screen-names";
 import { font } from "../style/font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { bottomTabNavigator } from "./bottom-tab-navigator";
+import { webViewScreen } from "../screens/web-view-screen";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +18,6 @@ const StackNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShadowVisible: false,
-
         headerTitleStyle: {
           fontFamily: font.bold,
         },
@@ -32,10 +33,11 @@ const StackNavigator = () => {
 
       <Stack.Screen {...loginScreen} />
       <Stack.Screen {...signupScreen} />
+      <Stack.Screen {...webViewScreen} />
       {/* <Stack.Screen {...userVerificationScreen} /> */}
       <Stack.Screen {...passwordResetScreen} />
 
-      {/* <Stack.Screen {...bottomTabNavigator} /> */}
+      <Stack.Screen {...bottomTabNavigator} />
     </Stack.Navigator>
   );
 };

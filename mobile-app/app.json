@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.any.assainir"
+      "package": "com.any.assainir",
+      "config": {}
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -29,6 +30,9 @@
       "eas": {
         "projectId": "74c02467-4d75-41b5-885a-2e5f8194d41f"
       }
-    }
+    },
+    "plugins": [
+      ["expo-build-properties"]
+    ]
   }
 }

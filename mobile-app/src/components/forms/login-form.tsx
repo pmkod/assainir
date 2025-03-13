@@ -12,9 +12,13 @@ import { Pressable, View } from "react-native";
 import { MyText } from "../core/my-text";
 import { Button } from "../core/button";
 import { loginFormValidationSchema } from "../../validation/schemas/auth-validation-schemas";
+import { loginRequest } from "../../services/auth-service";
+import { useQueryClient } from "@tanstack/react-query";
+import { navigatorNames } from "../../constants/navigator-names";
 
 export const LoginForm = () => {
   const navigation = useNavigation();
+  const queryClient = useQueryClient();
   const form = useForm<z.infer<typeof loginFormValidationSchema>>({
     resolver: zodResolver(loginFormValidationSchema),
     mode: "onSubmit",
@@ -27,7 +31,20 @@ export const LoginForm = () => {
 
   const login: SubmitHandler<
     z.infer<typeof loginFormValidationSchema>
-  > = async (data) => {
+  > = async (values) => {
+    const { success, message } = await loginRequest(values);
+
+    if (success) {
+      navigation.navigate(navigatorNames.bottomTab);
+    } else {
+      form.setError("root.serverCatch", {
+        message,
+      });
+    }
+
+    console.log(success);
+    console.log(message);
+
     try {
       // await loginRequest(data);
       // navigation.navigate(emailVerificationScreenName, {

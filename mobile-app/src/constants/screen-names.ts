@@ -4,4 +4,7 @@ export const screenNames = {
   signup: "signup",
   passwordReset: "passwordReset",
   newPassword: "newPassword",
+  home: "home",
+  profile: "profile",
+  webView: "webView",
 } as const;

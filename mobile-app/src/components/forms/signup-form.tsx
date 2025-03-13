@@ -247,15 +247,15 @@ export const SignupForm = () => {
                   }
                   style={{
                     borderWidth: 1,
-                    paddingHorizontal: 16,
+                    paddingHorizontal: 8,
                     borderRadius: 2,
                     fontFamily: font.regular,
                     color: theme.gray700,
                     borderColor: theme.gray600,
                     paddingVertical: 10,
                     fontSize: 15,
+                    backgroundColor: theme.white,
                   }}
-                  
                 >
                   <Picker.Item label="Sélectionner" />
                   <Picker.Item label="BEL-AIR" value="bel-air" />

@@ -12,9 +12,11 @@ import { StackNavigator } from "./navigators/stack-navigator";
 import { RootStackParamList } from "./style/types/screens";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { useTheme } from "./style/hooks/use-theme";
-import { View } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import { MyText } from "./components/core/my-text";
 import { themes } from "./style/themes";
+import ReactQueryProvider from "./providers/react-query-provider";
+import { StatusBar } from "expo-status-bar";
 
 declare global {
   namespace ReactNavigation {
@@ -37,14 +39,27 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <NavigationContainer
-        theme={{
-          ...DefaultTheme,
-          colors: { ...DefaultTheme.colors, background: themes.light.white },
-        }}
-      >
-        <StackNavigator />
-      </NavigationContainer>
+      <ReactQueryProvider>
+        <NavigationContainer
+          theme={{
+            ...DefaultTheme,
+            colors: { ...DefaultTheme.colors, background: themes.light.white },
+          }}
+        >
+          <SafeAreaView style={{ flex: 1 }}>
+            <StatusBar
+              animated={true}
+              backgroundColor="#61dafb"
+              // style=""
+              // barStyle={statusBarStyle}
+              // showHideTransition={statusBarTransition}
+              // hidden={hidden}
+              translucent={false}
+            />
+            <StackNavigator />
+          </SafeAreaView>
+        </NavigationContainer>
+      </ReactQueryProvider>
     </GestureHandlerRootView>
   );
 }

@@ -7,6 +7,7 @@ import { Space } from "../components/core/space";
 import { Button } from "../components/core/button";
 import { NativeStackScreen } from "../style/types/screens";
 import { useNavigation } from "@react-navigation/native";
+import { initalPageFieldName } from "../constants/web-view-constants";
 
 const FirstScreen = () => {
   const { theme } = useTheme();
@@ -15,12 +16,34 @@ const FirstScreen = () => {
 
   const screenHeight = Dimensions.get("screen").height;
 
+  const websiteBaseUrl = "https://assainirplus.appli.edu.ci";
+
   const goToLoginScreen = () => {
-    navigation.navigate(screenNames.login);
+    navigation.reset({
+      index: 0, // L'index de la nouvelle route dans la pile
+      routes: [
+        {
+          name: screenNames.webView,
+          params: {
+            [initalPageFieldName]: websiteBaseUrl + "/login.php",
+          },
+        },
+      ], // La nouvelle route
+    });
   };
 
   const goToSignupScreen = () => {
-    navigation.navigate(screenNames.signup);
+    navigation.reset({
+      index: 0, // L'index de la nouvelle route dans la pile
+      routes: [
+        {
+          name: screenNames.webView,
+          params: {
+            [initalPageFieldName]: websiteBaseUrl + "/web_register.php",
+          },
+        },
+      ], // La nouvelle route
+    });
   };
 
   // useEffect(() => {
